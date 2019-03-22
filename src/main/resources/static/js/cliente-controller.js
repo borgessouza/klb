@@ -15,7 +15,7 @@ angular.module('main').controller('ClienteController',['$scope', '$http', functi
 	$scope.pegarTipo = function() {
 				$http({
 					method:'GET',
-					url:'cliente/riscos'
+					url:'/riscos'
 				}).then(function successCallback(response) {
 					console.log(response)
 					$scope.riscos = response.data;
@@ -37,7 +37,7 @@ angular.module('main').controller('ClienteController',['$scope', '$http', functi
 			} else {
 				$http({
 					method:'POST',
-					url:'cliente/cadastrar',
+					url:'/cadastrar',
 					data : {
 						nome : clienteNome,
 						credito : clienteCredito,
