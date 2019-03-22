@@ -18,3 +18,7 @@ Cadastro de cliente com Nome, credito e tipo de risco.
 ### Executing 
 ```
 mvn spring-boot:run
+```
+
+### Accessing
+* http://localhost:8080/
