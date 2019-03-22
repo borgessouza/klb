@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="main">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem Vindo a KLB</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/cliente.css" rel="stylesheet">
+</head>
+<body ng-controller="ClienteController" ng-init="init()">
+<div class="container form-signin">      
+        <div class="row justify-content-md-center align-items-center">
+             <div class="col-md-6" style="padding: 5px">
+                    <label>Nome do Cliente:</label>
+             </div>
+             <div class="col-md-6" style="padding: 5px">
+                    <input type="text" name="clienteNome" ng-model="clienteNome">
+             </div>
+        </div>
+
+        <div class="row">
+             <div class="col-md-6" style="padding: 5px">
+                    <label>Limite de Credito:</label>
+             </div>
+
+             <div class="col-md-6" style="padding: 5px">
+                    <input type="number" name="clienteCredito" ng-model="clienteCredito">
+             </div>
+        </div>
+
+
+        <div class="row">
+             <div class="col-md-6" style="padding: 5px">
+                    <label>Tipo de Risco</label>
+             </div>
+             <div class="col-md-6" style="padding: 5px">
+                    <select class="custom-select" name="tipoRisco" ng-model="clienteTipoRisco"> 
+                        <option value="">Favor Selecionar o Risco</option>               
+                        <option ng-repeat="risco in riscos" value="{{risco}}"> {{risco}}</option>
+                    </select>
+             </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-12" style="padding: 5px">
+                    <button  type="button" class="btn btn-primary" 
+                     ng-click="cadastrar(clienteNome, clienteCredito, clienteTipoRisco)">Cadastrar</button>
+                </div>
+        </div>   
+  
+      <div class="row alerta">
+        <div ng-show="sucesso" class="alert alert-success">
+                <p class="text-left">
+                    <strong>Cadastro Realizado com Sucesso!</strong>
+                </p>
+            </div>
+
+
+            <div ng-show="erro" class="alert alert-danger">
+                <p class="text-left">
+                    <strong>Ops, Ocorreu um erro! Favor verificar parametros</strong>
+                </p>
+            </div>
+
+            <div ng-show="alerta" class="alert alert-warning">
+                <p class="text-left">
+                    <strong>Ops, Favor preencher os dados</strong>
+                </p>
+            </div>    
+         </div>      
+</div>      
+
+
+
+<script src="../js/lib/angular.min.js"></script>
+<script src="../js/lib/ngMask.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/cliente-controller.js"></script>
+
+</body>
+</html>
